@@ -1,0 +1,958 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portofolio - Muhamad Farel Salsabil</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: #f8f9fa;
+            color: #212529;
+            font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+        }
+
+        /* Navbar */
+        .navbar {
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+        }
+
+        /* Pure CSS Navbar Toggler (No JS) */
+        #nav-check {
+            display: none;
+        }
+
+        @media (max-width: 991.98px) {
+            #nav-check:checked ~ #navbarSupportedContent {
+                display: block !important;
+            }
+        }
+
+        /* Hero */
+        .hero {
+            min-height: 450px;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(135deg, #0d6efd, #6f42c1);
+            color: white;
+            padding: 60px 0;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            font-weight: bold;
+        }
+
+        .hero p {
+            font-size: 20px;
+        }
+
+        .profile-img {
+            max-height: 350px;
+            max-width: 100%;
+            object-fit: contain;
+        }
+
+        /* Section Title */
+        .section-title {
+            color: #0d6efd;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* Mini Quick Stats */
+        .mini-stat-card {
+            background: #ffffff;
+            border-radius: 14px;
+            border: 1px solid #edf0f5;
+            padding: 14px 18px;
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .mini-stat-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.05);
+        }
+
+        .mini-icon {
+            width: 44px;
+            height: 44px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+            flex-shrink: 0;
+        }
+
+        .mini-label {
+            font-size: 0.75rem;
+            color: #64748b;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-weight: 600;
+            display: block;
+        }
+
+        .mini-val {
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin: 0;
+        }
+
+        /* Enhanced Info Cards */
+        .info-card {
+            background: #ffffff;
+            border-radius: 16px;
+            border: 1px solid #edf0f5;
+            padding: 24px;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
+            transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+        }
+
+        .info-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 26px rgba(0, 0, 0, 0.06);
+        }
+
+        .info-card.card-blue {
+            border-top: 4px solid #0d6efd;
+        }
+
+        .info-card.card-cyan {
+            border-top: 4px solid #06b6d4;
+        }
+
+        .info-card.card-green {
+            border-top: 4px solid #198754;
+        }
+
+        .info-card-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 14px;
+        }
+
+        .info-icon-badge {
+            width: 42px;
+            height: 42px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+            flex-shrink: 0;
+        }
+
+        .info-card-header h5 {
+            margin: 0;
+            font-weight: 700;
+            color: #1e293b;
+            font-size: 1.15rem;
+        }
+
+        .info-card p {
+            color: #475569;
+            font-size: 0.93rem;
+            line-height: 1.65;
+            margin: 0 0 18px 0;
+            flex-grow: 1;
+        }
+
+        .skill-pill {
+            font-size: 0.75rem;
+            font-weight: 500;
+            padding: 4px 10px;
+            border-radius: 50px;
+            background-color: #f1f5f9;
+            color: #475569;
+            border: 1px solid #e2e8f0;
+            display: inline-block;
+        }
+
+        /* Table Card */
+        .table-card {
+            background: #ffffff;
+            border-radius: 16px;
+            border: 1px solid #e2e8f0;
+            overflow: hidden;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.03);
+        }
+
+        .custom-table {
+            margin-bottom: 0;
+        }
+
+        .custom-table thead tr th {
+            background-color: #dbeafe;
+            color: #1e293b;
+            font-weight: 600;
+            font-size: 0.95rem;
+            padding: 16px 20px;
+            border-bottom: 1px solid #cbd5e1;
+        }
+
+        .custom-table tbody tr td {
+            padding: 18px 20px;
+            vertical-align: middle;
+            border-bottom: 1px solid #f1f5f9;
+            background-color: #ffffff;
+        }
+
+        .custom-table tbody tr:last-child td {
+            border-bottom: none;
+        }
+
+        .progress-thin {
+            height: 6px;
+            border-radius: 10px;
+            background-color: #e2e8f0;
+        }
+
+        .progress-thin .progress-bar {
+            border-radius: 10px;
+        }
+
+        /* Action Badges / Buttons (Static, No JS) */
+        .badge-action-edit {
+            background-color: #198754;
+            color: #ffffff;
+            border-radius: 50px;
+            padding: 6px 16px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            text-decoration: none;
+        }
+
+        .badge-action-delete {
+            background-color: #dc3545;
+            color: #ffffff;
+            border-radius: 50px;
+            padding: 6px 16px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            text-decoration: none;
+        }
+
+        /* Gallery Cards */
+        .gallery-card {
+            background: #ffffff;
+            border-radius: 16px;
+            border: 1px solid #edf0f5;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .gallery-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.08);
+        }
+
+        .gallery-img-wrapper {
+            position: relative;
+            height: 220px;
+            overflow: hidden;
+            background: linear-gradient(135deg, #e2e8f0, #cbd5e1);
+        }
+
+        .gallery-img-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+
+        .gallery-card:hover .gallery-img-wrapper img {
+            transform: scale(1.05);
+        }
+
+        .gallery-badge {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            padding: 6px 12px;
+            border-radius: 50px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+        }
+
+        .gallery-body {
+            padding: 22px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .gallery-title {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 8px;
+        }
+
+        .gallery-desc {
+            color: #64748b;
+            font-size: 0.9rem;
+            line-height: 1.55;
+            margin-bottom: 18px;
+            flex-grow: 1;
+        }
+
+        /* Divider Tembok Antara Form & Map */
+        @media (min-width: 992px) {
+            .border-end-lg {
+                border-right: 1.5px solid #e2e8f0 !important;
+            }
+        }
+
+        /* Simple Footer */
+        .simple-footer {
+            background-color: #0f172a;
+            color: #94a3b8;
+            padding: 24px 0;
+            margin-top: 60px;
+        }
+
+        /* Bootstrap Dark Mode Overrides */
+        [data-bs-theme="dark"] body {
+            background-color: #0b1120;
+            color: #e2e8f0;
+        }
+
+        [data-bs-theme="dark"] .hero {
+            background: linear-gradient(135deg, #091e42, #3b1d6b);
+        }
+
+        [data-bs-theme="dark"] .section-title {
+            color: #60a5fa;
+        }
+
+        [data-bs-theme="dark"] .mini-stat-card {
+            background-color: #1e293b;
+            border-color: #334155;
+            color: #f1f5f9;
+        }
+
+        [data-bs-theme="dark"] .mini-val {
+            color: #f8fafc;
+        }
+
+        [data-bs-theme="dark"] .mini-label {
+            color: #94a3b8;
+        }
+
+        [data-bs-theme="dark"] .info-card {
+            background-color: #1e293b;
+            border-color: #334155;
+            color: #f1f5f9;
+        }
+
+        [data-bs-theme="dark"] .info-card h5 {
+            color: #ffffff;
+        }
+
+        [data-bs-theme="dark"] .info-card p {
+            color: #cbd5e1;
+        }
+
+        [data-bs-theme="dark"] .skill-pill {
+            background-color: #0f172a;
+            border-color: #334155;
+            color: #94a3b8;
+        }
+
+        [data-bs-theme="dark"] .table-card {
+            background-color: #1e293b;
+            border-color: #334155;
+        }
+
+        [data-bs-theme="dark"] .custom-table thead tr th {
+            background-color: #1e293b;
+            color: #60a5fa;
+            border-bottom-color: #334155;
+        }
+
+        [data-bs-theme="dark"] .custom-table tbody tr td {
+            background-color: #1e293b;
+            color: #e2e8f0;
+            border-bottom-color: #334155;
+        }
+
+        [data-bs-theme="dark"] .gallery-card {
+            background-color: #1e293b;
+            border-color: #334155;
+        }
+
+        [data-bs-theme="dark"] .gallery-title {
+            color: #ffffff;
+        }
+
+        [data-bs-theme="dark"] .gallery-desc {
+            color: #94a3b8;
+        }
+
+        [data-bs-theme="dark"] .card {
+            background-color: #1e293b !important;
+            border-color: #334155 !important;
+            color: #e2e8f0;
+        }
+
+        [data-bs-theme="dark"] .card h5 {
+            color: #ffffff !important;
+        }
+
+        [data-bs-theme="dark"] .border-end-lg {
+            border-right-color: #334155 !important;
+        }
+
+        [data-bs-theme="dark"] .form-control {
+            background-color: #0f172a;
+            border-color: #334155;
+            color: #f8fafc;
+        }
+
+        [data-bs-theme="dark"] .form-control:focus {
+            background-color: #0f172a;
+            border-color: #60a5fa;
+            color: #f8fafc;
+        }
+
+        [data-bs-theme="dark"] .form-label {
+            color: #e2e8f0;
+        }
+
+        [data-bs-theme="dark"] .form-text {
+            color: #94a3b8 !important;
+        }
+
+        [data-bs-theme="dark"] .simple-footer {
+            background-color: #030712;
+            border-top: 1px solid #1e293b;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar sticky-top navbar-expand-lg bg-primary" data-bs-theme="dark">
+      <div class="container-fluid">
+        <a class="navbar-brand fw-bold" href="index.html">F/L</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#about">About Me</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#tabel">Table</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#galery">Galery</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#contact">Contact Us</a>
+            </li>
+          </ul>
+          <form class="d-flex align-items-center" role="search">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
+            <button class="btn btn-outline-light" type="submit">Search</button>
+          </form>
+
+          <!-- Bootstrap 5 Official Color Mode Dropdown -->
+          <div class="dropdown bd-mode-toggle ms-2">
+            <button class="btn btn-outline-light dropdown-toggle d-flex align-items-center"
+                    id="bd-theme"
+                    type="button"
+                    aria-expanded="false"
+                    data-bs-toggle="dropdown"
+                    aria-label="Toggle theme (auto)">
+              <i class="bi bi-circle-half theme-icon-active me-1"></i>
+              <span class="visually-hidden" id="bd-theme-text">Toggle theme</span>
+            </button>
+            <ul class="dropdown-menu dropdown-menu-end shadow" aria-labelledby="bd-theme-text">
+              <li>
+                <button type="button" class="dropdown-item d-flex align-items-center active" data-bs-theme-value="light" aria-pressed="true">
+                  <i class="bi bi-sun-fill me-2 opacity-50 theme-icon"></i>
+                  Light
+                </button>
+              </li>
+              <li>
+                <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="dark" aria-pressed="false">
+                  <i class="bi bi-moon-stars-fill me-2 opacity-50 theme-icon"></i>
+                  Dark
+                </button>
+              </li>
+              <li>
+                <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="auto" aria-pressed="false">
+                  <i class="bi bi-circle-half me-2 opacity-50 theme-icon"></i>
+                  Auto
+                </button>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-7">
+                    <p class="mb-2">Halo, saya</p>
+                    <h1>Muhamad Farel Salsabil</h1>
+                    <p class="mt-3">
+                        Siswa SMKN 2 Kota Jambi
+                        <br>
+                        XI PPLG 2
+                    </p>
+                    <p>
+                        Saya tertarik dengan dunia pemrograman,
+                        website, dan teknologi.
+                    </p>
+                    <a href="#about" class="btn btn-light btn-lg mt-3">
+                        Lihat Portofolio
+                    </a>
+                </div>
+                <div class="col-md-5 text-center mt-4 mt-md-0">
+                    <img src="img/images-removebg-preview (1).png"
+                         alt="Foto Profil Muhamad Farel Salsabil"
+                         class="profile-img">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="container py-5">
+        <!-- Section: Tentang Saya & Profil Ringkas -->
+        <section id="about" class="mb-5 pb-3">
+            <div class="d-flex align-items-center mb-2">
+                <h3 class="section-title fs-3 mb-0">
+                    <i class="bi bi-person-vcard text-primary fs-3"></i>
+                    Tentang Saya &amp; Profil Ringkas
+                </h3>
+            </div>
+            <p class="text-muted small mb-0">Sekilas profil, keahlian teknis, dan etos belajar saya di bidang teknologi.</p>
+            <hr class="text-secondary opacity-25 mt-3 mb-4">
+
+            <!-- Quick Highlight Badges -->
+            <div class="row g-3 mb-4">
+                <div class="col-6 col-lg-3">
+                    <div class="mini-stat-card">
+                        <div class="mini-icon bg-primary-subtle text-primary">
+                            <i class="bi bi-mortarboard-fill"></i>
+                        </div>
+                        <div>
+                            <span class="mini-label">Pendidikan</span>
+                            <h6 class="mini-val">SMKN 2 Jambi</h6>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 col-lg-3">
+                    <div class="mini-stat-card">
+                        <div class="mini-icon bg-info-subtle text-info">
+                            <i class="bi bi-code-slash"></i>
+                        </div>
+                        <div>
+                            <span class="mini-label">Program Studi</span>
+                            <h6 class="mini-val">XI PPLG 2</h6>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 col-lg-3">
+                    <div class="mini-stat-card">
+                        <div class="mini-icon bg-success-subtle text-success">
+                            <i class="bi bi-robot"></i>
+                        </div>
+                        <div>
+                            <span class="mini-label">Fokus Minat</span>
+                            <h6 class="mini-val">Web &amp; Hardware</h6>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 col-lg-3">
+                    <div class="mini-stat-card">
+                        <div class="mini-icon bg-warning-subtle text-warning">
+                            <i class="bi bi-lightning-charge-fill"></i>
+                        </div>
+                        <div>
+                            <span class="mini-label">Karakter</span>
+                            <h6 class="mini-val">Aktif &amp; Ambisius</h6>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 3 Main Profile Cards -->
+            <div class="row g-4">
+                <!-- Card 1: Fokus Utama -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="info-card card-blue">
+                        <div class="info-card-header">
+                            <div class="info-icon-badge bg-primary-subtle text-primary">
+                                <i class="bi bi-bullseye"></i>
+                            </div>
+                            <h5>Fokus Utama</h5>
+                        </div>
+                        <p>
+                            Berfokus pada pengembangan Front-End dan Back-End website responsif menggunakan HTML, CSS, JavaScript, PHP, dan framework modern seperti Bootstrap, selain itu saya juga bisa dalam bidang hardware seperti membuat robot line follower.
+                        </p>
+                        <div class="d-flex flex-wrap gap-1 mt-auto pt-2">
+                            <span class="skill-pill">HTML &amp; CSS</span>
+                            <span class="skill-pill">JavaScript</span>
+                            <span class="skill-pill">PHP</span>
+                            <span class="skill-pill">Bootstrap</span>
+                            <span class="skill-pill">Line Follower</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 2: Pendidikan -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="info-card card-cyan">
+                        <div class="info-card-header">
+                            <div class="info-icon-badge bg-info-subtle text-info">
+                                <i class="bi bi-mortarboard-fill"></i>
+                            </div>
+                            <h5>Pendidikan</h5>
+                        </div>
+                        <p>
+                            Menempuh pendidikan di SMKN 2 Kota Jambi, Mengambil jurusan RPL/PPLG memprogram website dan hardware seperti robot line follower.
+                        </p>
+                        <div class="d-flex flex-wrap gap-1 mt-auto pt-2">
+                            <span class="skill-pill">SMKN 2 Kota Jambi</span>
+                            <span class="skill-pill">RPL / PPLG</span>
+                            <span class="skill-pill">Website &amp; Hardware</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 3: Personality -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="info-card card-green">
+                        <div class="info-card-header">
+                            <div class="info-icon-badge bg-success-subtle text-success">
+                                <i class="bi bi-star-fill"></i>
+                            </div>
+                            <h5>Personality</h5>
+                        </div>
+                        <p>
+                            Di sekolah saya sangat aktif dalam mengerjakan tugas dan tidak pernah lalai dalam tanggung jawab saya sebagai pelajar untuk menempuh masa depan yang cerah, saya jamin saya memiliki karakteristik seorang yg ambisius.
+                        </p>
+                        <div class="d-flex flex-wrap gap-1 mt-auto pt-2">
+                            <span class="skill-pill">Ambisius</span>
+                            <span class="skill-pill">Disiplin Tinggi</span>
+                            <span class="skill-pill">Tanggung Jawab</span>
+                            <span class="skill-pill">Aktif</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section: Tabel Singkat Mengenai Saya -->
+        <section id="tabel" class="pt-3">
+            <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-center gap-3 mb-3">
+                <div>
+                    <h3 class="section-title fs-3 mb-1">
+                        <i class="bi bi-table text-primary fs-3"></i>
+                        Tabel Singkat Mengenai Saya
+                    </h3>
+                </div>
+            </div>
+
+            <!-- Table Card -->
+            <div class="table-card">
+                <div class="table-responsive">
+                    <table class="table custom-table align-middle" id="tabelSiswa">
+                        <thead>
+                            <tr>
+                                <th scope="col" style="width: 70px;">No</th>
+                                <th scope="col" style="width: 180px;">Nama Siswa</th>
+                                <th scope="col" style="width: 150px;">Kelas</th>
+                                <th scope="col">Penguasaan Teknologi &amp; Keahlian</th>
+                                <th scope="col" style="width: 190px;" class="text-center">Aksi</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="fw-bold">1</td>
+                                <td class="fw-bold">Farel</td>
+                                <td class="text-secondary">XI PPLG 2</td>
+                                <td>
+                                    <div class="d-flex justify-content-between small text-secondary mb-1">
+                                        <span>Bahasa Inggris &amp; Pemrograman</span>
+                                        <span class="fw-semibold">90%</span>
+                                    </div>
+                                    <div class="progress progress-thin">
+                                        <div class="progress-bar bg-primary" role="progressbar" style="width: 90%;" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+                                </td>
+                                <td class="text-center">
+                                    <div class="d-inline-flex gap-2">
+                                        <span class="badge-action-edit">
+                                            <i class="bi bi-pencil-square"></i> Edit
+                                        </span>
+                                        <span class="badge-action-delete">
+                                            <i class="bi bi-trash-fill"></i> Hapus
+                                        </span>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section: Galeri & Karya -->
+        <section id="galery" class="pt-5">
+            <div class="d-flex align-items-center mb-2">
+                <h3 class="section-title fs-3 mb-0">
+                    <i class="bi bi-images text-primary fs-3"></i>
+                    Galeri &amp; Karya
+                </h3>
+            </div>
+            <p class="text-muted small mb-0">Dokumentasi hasil karya, proyek, dan desain yang telah dibuat.</p>
+            <hr class="text-secondary opacity-25 mt-3 mb-4">
+
+            <div class="row g-4">
+                <!-- Kartu 1 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="gallery-card">
+                        <div class="gallery-img-wrapper">
+                            <img src="img/Cuplikan layar 2026-09-29 185829.png" alt="Robot Line Follower & Hardware">
+                            <span class="badge bg-primary gallery-badge">
+                                <i class="bi bi-cpu me-1"></i> Web Pariwisata
+                            </span>
+                        </div>
+                        <div class="gallery-body">
+                            <h5 class="gallery-title">Web Pariwisata</h5>
+                            <p class="gallery-desc">
+                               Web yang dibuat untuk memenuhi ulangan, web ini masi banyak kekurangan namun saya membuatnya dengan semangat
+                            </p>
+                            <a href="#galery" class="btn btn-outline-primary btn-sm rounded-pill px-3 py-2 fw-medium d-inline-flex align-items-center gap-2 mt-auto align-self-start">
+                                <i class="bi bi-box-arrow-up-right"></i> Lihat Detail
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Kartu 2 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="gallery-card">
+                        <div class="gallery-img-wrapper">
+                            <img src="img/Cuplikan layar 2026-09-29 185723.png" alt="Saber (Icon by me)">
+                            <span class="badge bg-info text-dark gallery-badge">
+                                <i class="bi bi-palette-fill me-1"></i> Kalkulator
+                            </span>
+                        </div>
+                        <div class="gallery-body">
+                            <h5 class="gallery-title">Web Kalkulator</h5>
+                            <p class="gallery-desc">
+                                Web yang dibuat sebagaimana fungsinya yaitu Kalkulator menggunakan php sebagai bahasa pemogrammannya
+                            </p>
+                            <a href="#galery" class="btn btn-outline-primary btn-sm rounded-pill px-3 py-2 fw-medium d-inline-flex align-items-center gap-2 mt-auto align-self-start">
+                                <i class="bi bi-box-arrow-up-right"></i> Lihat Detail
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Kartu 3 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="gallery-card">
+                        <div class="gallery-img-wrapper">
+                            <img src="img/Cuplikan layar 2026-09-29 185851.png" alt="Ilustrasi & Digital Artwork">
+                            <span class="badge bg-success gallery-badge">
+                                <i class="bi bi-brush-fill me-1"></i> Web Login
+                            </span>
+                        </div>
+                        <div class="gallery-body">
+                            <h5 class="gallery-title">Web Halaman Login</h5>
+                            <p class="gallery-desc">
+                               Web yang saya buat sebagai template, web ini tugas pelajaran KK kak july
+                            </p>
+                            <a href="#galery" class="btn btn-outline-primary btn-sm rounded-pill px-3 py-2 fw-medium d-inline-flex align-items-center gap-2 mt-auto align-self-start">
+                                <i class="bi bi-box-arrow-up-right"></i> Lihat Detail
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section: Contact Us -->
+        <section id="contact" class="pt-5">
+            <div class="d-flex align-items-center mb-2">
+                <h3 class="section-title fs-3 mb-0">
+                    <i class="bi bi-envelope-paper-fill text-primary fs-3"></i>
+                    Contact Us
+                </h3>
+            </div>
+            <p class="text-muted small mb-0">Hubungi atau kirimkan pesan kepada saya melalui formulir di bawah ini.</p>
+            <hr class="text-secondary opacity-25 mt-3 mb-4">
+
+            <div class="card border-0 shadow-sm rounded-4 p-4 p-lg-5 bg-white">
+                <div class="row g-4 align-items-stretch">
+                    <!-- Form Contact Us (Kiri) -->
+                    <div class="col-lg-6 pe-lg-4 border-end-lg">
+                        <h5 class="fw-bold text-dark mb-3 d-flex align-items-center">
+                            <i class="bi bi-chat-left-text text-primary me-2"></i>Kirim Pesan
+                        </h5>
+                        <form>
+                            <div class="mb-3">
+                                <label for="exampleInputEmail1" class="form-label fw-semibold">Email address</label>
+                                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" required>
+                                <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="exampleInputPassword1" class="form-label fw-semibold">Password</label>
+                                <input type="password" class="form-control" id="exampleInputPassword1">
+                            </div>
+                            <div class="mb-3 form-check">
+                                <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                                <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                            </div>
+                            <button type="submit" class="btn btn-primary rounded-pill px-4 py-2">Submit</button>
+                        </form>
+                    </div>
+
+                    <!-- Area Map (Kanan) -->
+                    <div class="col-lg-6 ps-lg-4 d-flex flex-column">
+                        <h5 class="fw-bold text-dark mb-3 d-flex align-items-center">
+                            <i class="bi bi-geo-alt-fill text-danger me-2"></i>Lokasi Saya
+                        </h5>
+                        <div class="rounded-4 overflow-hidden border flex-grow-1 shadow-sm" style="min-height: 280px;">
+                            <iframe 
+                                title="Peta Lokasi"
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.2237697058345!2d103.6415312747252!3d-1.6199241983650026!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e25888b1224749f%3A0xba13725b9daf95ba!2sSekolah%20Menengah%20Kejuruan%20Negeri%202%20Kota%20Jambi!5e0!3m2!1sid!2sid!4v1790660122519!5m2!1sid!2sid"
+                                width="100%" 
+                                height="100%" 
+                                style="border:0; min-height: 280px; width: 100%; display: block;" 
+                                allowfullscreen="" 
+                                loading="lazy">
+                            </iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer Sederhana (Copyright Only) -->
+    <footer class="simple-footer text-center">
+        <div class="container">
+            <p class="mb-0 small">
+                &copy; 2026 <strong>Muhamad Farel Salsabil</strong>. All rights reserved.
+            </p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap 5 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Bootstrap 5 Official Color Mode Switcher Script -->
+    <script>
+      (() => {
+        'use strict'
+
+        const getStoredTheme = () => localStorage.getItem('theme')
+        const setStoredTheme = theme => localStorage.setItem('theme', theme)
+
+        const getPreferredTheme = () => {
+          const storedTheme = getStoredTheme()
+          if (storedTheme) {
+            return storedTheme
+          }
+          return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
+        }
+
+        const setTheme = theme => {
+          if (theme === 'auto') {
+            document.documentElement.setAttribute('data-bs-theme', (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'))
+          } else {
+            document.documentElement.setAttribute('data-bs-theme', theme)
+          }
+        }
+
+        setTheme(getPreferredTheme())
+
+        const showActiveTheme = (theme, focus = false) => {
+          const themeSwitcher = document.querySelector('#bd-theme')
+          if (!themeSwitcher) return
+
+          const activeThemeIcon = document.querySelector('.theme-icon-active')
+          const btnToActive = document.querySelector(`[data-bs-theme-value="${theme}"]`)
+          if (!btnToActive) return
+          const iconOfActiveBtn = btnToActive.querySelector('.theme-icon')
+
+          document.querySelectorAll('[data-bs-theme-value]').forEach(element => {
+            element.classList.remove('active')
+            element.setAttribute('aria-pressed', 'false')
+          })
+
+          btnToActive.classList.add('active')
+          btnToActive.setAttribute('aria-pressed', 'true')
+          if (iconOfActiveBtn && activeThemeIcon) {
+            activeThemeIcon.className = iconOfActiveBtn.className.replace('opacity-50 me-2', '') + ' theme-icon-active me-1'
+          }
+        }
+
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
+          const storedTheme = getStoredTheme()
+          if (storedTheme !== 'light' && storedTheme !== 'dark') {
+            setTheme(getPreferredTheme())
+          }
+        })
+
+        window.addEventListener('DOMContentLoaded', () => {
+          showActiveTheme(getPreferredTheme())
+
+          document.querySelectorAll('[data-bs-theme-value]').forEach(toggle => {
+            toggle.addEventListener('click', () => {
+              const theme = toggle.getAttribute('data-bs-theme-value')
+              setStoredTheme(theme)
+              setTheme(theme)
+              showActiveTheme(theme, true)
+            })
+          })
+        })
+      })()
+    </script>
+</body>
+</html>
